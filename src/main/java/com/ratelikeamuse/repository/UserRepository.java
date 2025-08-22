@@ -3,7 +3,7 @@ package RateLikeAMuse.repository; // olhar isso aqui
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ratelikeamuse.ratelikeamuse.entity.User; // verificar o caminho pro pacote, pq é aqui que ta dando o erro do resto
+import com.RateLikeAMuse.RateLikeAMuse.entity.User; // verificar o caminho pro pacote, pq é aqui que ta dando o erro do resto
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
