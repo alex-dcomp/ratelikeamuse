@@ -1,1 +1,145 @@
+/* Reset & tipografia */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Fundo principal */
+body {
+  background-color: #121212;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+  background-color: #1b1b1b;
+  max-width: 720px;
+  width: 100%;
+  padding: 40px 36px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(224, 62, 47, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Título */
+.container h1 {
+  text-align: center;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+/* Lista de cards */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card individual */
+.movie-card {
+  background-color: #1e1e1e;
+  border-left: 4px solid #e03e2f;
+  border-radius: 10px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 15px rgba(224, 62, 47, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.movie-card:hover {
+  background-color: #2a2a2a;
+}
+
+/* Título e ano */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.movie-card h3 {
+  font-size: 1.3rem;
+  color: #f5f5f5;
+}
+
+.year {
+  color: #f9d71c;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Gênero */
+.genre {
+  color: #bbb;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+/* Estrelas */
+.rating-display {
+  margin-bottom: 14px;
+}
+
+.star {
+  font-size: 1.4rem;
+  color: #444;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #f9d71c;
+}
+
+/* Botão de avaliação */
+.rate-btn {
+  background-color: #e03e2f;
+  color: white;
+  padding: 10px 14px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.rate-btn:hover {
+  background-color: #b63027;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .movie-card {
+    padding: 16px 18px;
+  }
+
+  .container h1 {
+    font-size: 1.6rem;
+  }
+
+  .movie-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .star {
+    font-size: 1.2rem;
+  }
+}
 
