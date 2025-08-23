@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login / Cadastro</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Bem-vindo</h1>
+
+    <div class="form-section">
+      <h2 class="section-title">Login</h2>
+      <form action="/auth/login" method="post" class="form">
+        <label for="login-username" class="label">Usuário:</label>
+        <input type="text" name="username" id="login-username" class="input" required />
+        
+        <label for="login-password" class="label">Senha:</label>
+        <input type="password" name="password" id="login-password" class="input" required />
+        
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+    </div>
+
+    <div class="form-section">
+      <h2 class="section-title">Cadastro</h2>
+      <form action="/auth/register" method="post" class="form">
+        <label for="register-username" class="label">Usuário:</label>
+        <input type="text" name="username" id="register-username" class="input" required />
+        
+        <label for="register-password" class="label">Senha:</label>
+        <input type="password" name="password" id="register-password" class="input" required />
+        
+        <button type="submit" class="btn btn-register">Registrar</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
 
