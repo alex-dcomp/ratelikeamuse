@@ -1,4 +1,4 @@
-package RateLikeAMuse.entity; //analisar esse package
+package ratelikeamuse.entity;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +14,6 @@ public class User implements UserDetails {
 
     private Long id;
     private String username;
-    private String email;
 
     @JsonIgnore
     private String password;
@@ -24,15 +23,15 @@ public class User implements UserDetails {
     public User() {
     }
 
-
-    public User(Long id, String username, String email, String password, Funcao funcao) {
+//construtor
+    public User(Long id, String username, String password, Funcao funcao) {
         this.id = id;
         this.username = username;
-        this.email = email;
         this.password = password;
         this.funcao = funcao;
     }
-
+    
+// Gets e Sets
     public Long getId() { 
         return id; 
     }
@@ -50,13 +49,6 @@ public class User implements UserDetails {
          this.username = username; 
     }
 
-    public String getEmail() { 
-        return email; 
-    }
-
-    public void setEmail(String email) { 
-        this.email = email; 
-    }
 
     @Override 
     public String getPassword() { 
@@ -113,16 +105,16 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(email, user.email);
+        return Objects.equals(id, user.id) && Objects.equals(username, user.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, email);
+        return Objects.hash(id, username);
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username='" + username + '\'' + ", email='" + email + '\'' + ", funcao=" + funcao + '}';
+        return "User{" + "id=" + id + ", username='" + username + '\'' + ", funcao=" + funcao + '}';
     }
 }
