@@ -1,4 +1,4 @@
-package RateLikeAMuse.entity; // mesma coisa
+package ratelikeamuse.entity;
 
 public enum Funcao {
     USER,
