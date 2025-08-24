@@ -1,4 +1,4 @@
-package RateLikeAMuse.entity; // mesma coisa dos outros, tem que ver essa parte do package
+package ratelikeamuse.entity; 
 
 import java.util.Objects;
 
@@ -13,7 +13,7 @@ public class Rate {
     public Rate() {
     }
 
-    // Construtor completo
+    // Construtor
     public Rate(Long id, Long userId, Long movieId, int score) {
         this.id = id;
         this.userId = userId;
