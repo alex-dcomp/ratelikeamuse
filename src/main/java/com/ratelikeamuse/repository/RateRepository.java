@@ -1,8 +1,8 @@
-package RateLikeAMuse.repository; // verificar e depois provavelmente corrigir esse package 
+package ratelikeamuse.repository;
 
+import ratelikeamuse.entity.Rate;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.RateLikeAMuse.RateLikeAMuse.entity.Rate; // corrigir o package aqui também
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
