@@ -1,9 +1,8 @@
+package ratelikeamuse.repository;
 
-package RateLikeAMuse.repository; // olhar isso aqui 
-
+import ratelikeamuse.entity.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.RateLikeAMuse.RateLikeAMuse.entity.User; // verificar o caminho pro pacote, pq é aqui que ta dando o erro do resto
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
@@ -34,7 +33,7 @@ public class UserRepository {
                           .max()
                           .orElse(0L);
         
-// Já começa o contados com o maior id que tiver para não duplicar.
+// Já começa o contador com o maior id que tiver para não duplicar.
         this.idCounter = new AtomicLong(maxId);
     }
 
@@ -62,11 +61,6 @@ public class UserRepository {
 // verifica se o nick já existe
     public boolean existsByUsername(String username) {
         return findAllInternal().stream().anyMatch(user -> user.getUsername().equals(username));
-    }
-
-// verifica se o email já existe
-    public boolean existsByEmail(String email) {
-        return findAllInternal().stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
 // salva o usuario
