@@ -1,8 +1,8 @@
-package RateLikeAMuse.repository; //ver nome dos pacotes
+package ratelikeamuse.repository;
 
+import ratelikeamuse.entity.Movie;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.RateLikeAMuse.RateLikeAMuse.entity.Movie; //aqui a mesma coisa em relação ao nome do pacote
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
