@@ -1,11 +1,11 @@
-package RateLikeAMuse.service;
+package ratelikeamuse.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import RateLikeAMuse.entity.Funcao;
+import ratelikeamuse.entity.Funcao;
 import jakarta.servlet.http.HttpSession;
-import RateLikeAMuse.entity.User;
-import RateLikeAMuse.repository.UserRepository;
+import ratelikeamuse.entity.User;
+import ratelikeamuse.repository.UserRepository;
 
 @Service
 public class UserService {
@@ -18,14 +18,11 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
     //Esta função recebe um usuário e senha, após isso ela verifica se o usuário já existe, caso não exista ela criptografa a senha e cria o usuário.
-    public User registerUser(String username, String password, String email) {
+    public User registerUser(String username, String password) {
         if (userRepository.existsByUsername(username)) {
             throw new RuntimeException("Username já existente");
         }
-         if (userRepository.existsByEmail(email)) {
-            throw new RuntimeException("Email já existente");
-        }
-        User user = new User(null, username, email, passwordEncoder.encode(password), Funcao.USER);
+        User user = new User(null, username, passwordEncoder.encode(password), Funcao.USER);
         return userRepository.save(user); 
     }
     // Essa função recebe username, password e uma sessão, verefica se o username existe, confere se a senha coincide com a senha salva nos arquivos, armazena o estado "logado" e retorna usuário 
