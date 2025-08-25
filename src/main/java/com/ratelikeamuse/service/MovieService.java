@@ -5,10 +5,11 @@ import ratelikeamuse.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
-    private final MovieRepository movieRepository;
+    private final MovieRepository movieRepository implements MovieInterface;
     
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
@@ -32,7 +33,20 @@ public class MovieService {
         movieRepository.save(new Movie(null, "A Real Pain", "Comédia dramática"));
         movieRepository.save(new Movie(null, "September 5", "Drama histórico, suspense"));
     }  
-  public List<Movie> getAllMovies() {
-    return movieRepository.findAll();
-}
+    @Override
+    public List<Movie> getAllMovies() {
+        return movieRepository.findAll();
+    }
+    @Override
+    public Optional<Movie> getMovieById(Long id) {
+        return movieRepository.findById(id);
+    }
+    @Override
+    public void deleteMovie(Long id) {
+        movieRepository.deleteById(id);
+    }
+    @Override
+    public Movie saveMovie(Movie movie) {
+        return movieRepository.save(movie);
+    }
 }
