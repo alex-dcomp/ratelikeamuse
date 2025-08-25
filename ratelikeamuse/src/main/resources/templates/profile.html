@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil - Rate Like a Muse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="black-background">
+    <a href="movies.html" class="perfil-btn">Voltar</a>
+
+  <div class="logo-wrapper">
+    <img src="logo2.png" alt="Logo" class="responsive-logo">
+  </div>
+
+  <div class="container">
+    <h1 class="title">Histórico de Avaliações</h1>
+
+    <div id="historico-avaliacoes" class="card-list">
+      <!-- Cards de filmes avaliados serão inseridos aqui via JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    const usuario = localStorage.getItem('usuarioLogado');
+    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || {};
+
+    const filmesCatalogo = {
+      "Anora": { genero: "Comédia/Romance", ano: 2023 },
+      "The Brutalist": { genero: "Drama/História", ano: 2023 },
+      "A Complete Unknown ": { genero: "Musical/Drama", ano: 2023 },
+      "Conclave ": { genero: "Mistério/Drama", ano: 2023 },
+      "Dune: Part Two": { genero: "Ficção/Aventura", ano: 2023 },
+      "Emilia Pérez ": { genero: "Musical/Suspense", ano: 2023 },
+      "I'm Still Here": { genero: "Drama", ano: 2023 },
+      "Nickel Boys": { genero: "Histórico/Drama", ano: 2023 },
+      "The Substance": { genero: "Terror Corporal/Suspense", ano: 2023 },
+      "Wicked ": { genero: "Comédia/Musical", ano: 2023 },
+      "Sing Sing": { genero: "Drama/Prisão", ano: 2023 },
+      "The Apprentice": { genero: "Cinebiografia/Drama", ano: 2023 },
+      "A Real Pain ": { genero: "Drama/Comédia", ano: 2023 },
+      "September 5": { genero: "Drama/Suspense", ano: 2023 }
+    };
+
+    const container = document.getElementById('historico-avaliacoes');
+
+    if (!usuario || !avaliacoes[usuario]) {
+      container.innerHTML = '<p style="color: #ccc; font-size: 1.1rem;">Nenhuma avaliação encontrada.</p>';
+    } else {
+      const filmesAvaliados = Object.entries(avaliacoes[usuario]);
+
+      if (filmesAvaliados.length === 0) {
+        container.innerHTML = '<p style="color: #ccc; font-size: 1.1rem;">Nenhuma avaliação realizada ainda.</p>';
+      } else {
+        filmesAvaliados.forEach(([titulo, nota]) => {
+          const dadosFilme = filmesCatalogo[titulo] || {};
+          const { genero = "Gênero não informado", ano = "Ano desconhecido" } = dadosFilme;
+
+          const card = document.createElement('div');
+          card.className = 'movie-card';
+          card.innerHTML = `
+            <div class="card-header">
+              <h3>${titulo}</h3>
+              <span class="year">${ano}</span>
+            </div>
+            <p class="genre">${genero}</p>
+            <div class="rating-display">
+              ${[1, 2, 3, 4, 5].map(i => `
+                <span class="star ${i <= nota ? 'filled' : ''}">★</span>
+              `).join('')}
+            </div>
+            <p style="color: #ccc; font-size: 0.95rem;">Nota: ${nota} estrela${nota > 1 ? 's' : ''}</p>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
