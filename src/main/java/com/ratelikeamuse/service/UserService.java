@@ -6,6 +6,7 @@ import ratelikeamuse.entity.Funcao;
 import jakarta.servlet.http.HttpSession;
 import ratelikeamuse.entity.User;
 import ratelikeamuse.repository.UserRepository;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -41,4 +42,7 @@ public class UserService {
        session.removeAttribute("user");
        session.invalidate();
     }
+    public Optional<User> findByUsername(String username) {
+	    return userRepository.findByUsername(username);
+	}
 }
